@@ -35,13 +35,14 @@ class Login extends StatelessWidget {
                           iconSize: 60,
                           onPressed: () {},
                           tooltip: "Sign-In with google",
+                          alignment: Alignment.centerLeft,
                         ),
                         IconButton(
                           onPressed: () {},
                           icon: const Icon(Icons.facebook_outlined),
                           tooltip: "Sign-In with facebook",
                           iconSize: 60,
-                          alignment: const Alignment(100, 0),
+                          alignment: Alignment.centerRight,
                           color: Colors.blue,
                         ),
                       ],
@@ -53,6 +54,13 @@ class Login extends StatelessWidget {
                   child: Column(
                     // ignore: prefer_const_literals_to_create_immutables
                     children: [
+                      const Divider(
+                        color: Colors.black,
+                        height: 10,
+                        thickness: 1,
+                        indent: 5,
+                        endIndent: 5,
+                      ),
                       const Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
