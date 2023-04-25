@@ -24,6 +24,7 @@ class Login extends StatelessWidget {
                   // style: data_.textStyleLegend,
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ButtonBar(
                       children: [
@@ -35,14 +36,14 @@ class Login extends StatelessWidget {
                           iconSize: 60,
                           onPressed: () {},
                           tooltip: "Sign-In with google",
-                          alignment: Alignment.centerLeft,
+                          // alignment: Alignment.centerLeft,
                         ),
                         IconButton(
                           onPressed: () {},
                           icon: const Icon(Icons.facebook_outlined),
                           tooltip: "Sign-In with facebook",
                           iconSize: 60,
-                          alignment: Alignment.centerRight,
+                          // alignment: Alignment.centerRight,
                           color: Colors.blue,
                         ),
                       ],
