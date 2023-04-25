@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -19,7 +21,32 @@ class Login extends StatelessWidget {
               children: [
                 const Text(
                   "Welcome back!",
-                  style: data_.textStyleLegend,
+                  // style: data_.textStyleLegend,
+                ),
+                Row(
+                  children: [
+                    ButtonBar(
+                      children: [
+                        IconButton(
+                          icon: Image.network(
+                            'http://pngimg.com/uploads/google/google_PNG19635.png',
+                            fit: BoxFit.scaleDown,
+                          ),
+                          iconSize: 60,
+                          onPressed: () {},
+                          tooltip: "Sign-In with google",
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.facebook_outlined),
+                          tooltip: "Sign-In with facebook",
+                          iconSize: 60,
+                          alignment: const Alignment(100, 0),
+                          color: Colors.blue,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
@@ -34,13 +61,9 @@ class Login extends StatelessWidget {
                           textAlign: TextAlign.start,
                         ),
                       ),
-                      const TextField(
-                        decoration: InputDecoration(
-                            suffixIcon: Icon(Icons.email_outlined),
-                            hintText: "Email",
-                            // errorText: "Invalid",
-                            border: OutlineInputBorder()),
-                      ),
+                      TextField(
+                          decoration:
+                              data_.inputField("Email", Icons.email_outlined)),
 
                       //////////////
                       ///
@@ -52,15 +75,17 @@ class Login extends StatelessWidget {
                           textAlign: TextAlign.start,
                         ),
                       ),
-                      const TextField(
-                        obscureText: true,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        decoration: InputDecoration(
-                            suffixIcon: Icon(Icons.password_outlined),
-                            hintText: "Password",
-                            border: OutlineInputBorder()),
-                      ),
+                      TextField(
+                          obscureText: true,
+                          enableSuggestions: false,
+                          autocorrect: false,
+                          decoration: data_.inputField(
+                              "passowrd", Icons.password_outlined)
+                          // InputDecoration(
+                          //     suffixIcon: Icon(Icons.password_outlined),
+                          //     hintText: "Password",
+                          //     border: OutlineInputBorder()),
+                          ),
                       ElevatedButton(
                           onPressed: () {}, child: const Text("Done"))
                     ],
