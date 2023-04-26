@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class Values {
   // textStyle in buttons
-  final TextStyle textStyleLegend =
-      const TextStyle(fontWeight: FontWeight.normal);
+  TextStyle textStyleLegend(FontWeight fWeight, double fontSize) =>
+      TextStyle(fontWeight: fWeight, fontSize: fontSize);
 
   //InputDecoration for decorating input fields
   inputField(String text_, IconData icon_) {
@@ -12,8 +12,4 @@ class Values {
         hintText: text_,
         border: const OutlineInputBorder());
   }
-}
-
-void main() {
-  var me = Values();
 }

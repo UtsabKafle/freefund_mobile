@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+// void main() {
+//   runApp(const MyApp());
+// }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -40,7 +40,9 @@ class MyApp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8.0,),
+              SizedBox(
+                height: 8.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -54,8 +56,9 @@ class MyApp extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(height: 8.0,),
-
+              SizedBox(
+                height: 8.0,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -66,9 +69,13 @@ class MyApp extends StatelessWidget {
                       thickness: 2.0,
                     ),
                   ),
-                  SizedBox(width: 8.0,),
+                  SizedBox(
+                    width: 8.0,
+                  ),
                   Text("OR"),
-                  SizedBox(width: 8.0,),
+                  SizedBox(
+                    width: 8.0,
+                  ),
                   SizedBox(
                     width: 100.0,
                     height: 5.0,
@@ -78,7 +85,9 @@ class MyApp extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 8.0,),
+              SizedBox(
+                height: 8.0,
+              ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: TextField(
@@ -113,6 +122,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
