@@ -10,6 +10,9 @@
 .svn/
 migrate_working_dir/
 
+#the secret keys, environemntal variables
+/lib/secret.dart
+
 # IntelliJ related
 *.iml
 *.ipr
