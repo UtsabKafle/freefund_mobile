@@ -123,9 +123,18 @@ class Login extends StatelessWidget {
                                 );
                                 final Session? session = res.session;
                                 final User? user = res.user;
+                                print(session);
+                                if (emailController.text != '' &&
+                                    passwordController.text != '') {
+                                  try {} catch (e) {
+                                    print(e);
+                                  }
+                                } else {
+                                  //
+                                }
+
                                 // print(passwordController.text);
                                 // print(emailController.text);
-                                print(session);
                               },
                               style: const ButtonStyle(
                                 alignment: Alignment.center,
