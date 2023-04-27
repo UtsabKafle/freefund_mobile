@@ -1,11 +1,13 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_local_variable
 
 import 'package:flutter/material.dart';
 import '../../main.dart';
 import 'constants.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:supabase/supabase.dart';
 
+import 'package:supabase_flutter/supabase_flutter.dart';
+
+// import 'package:supabase/supabase.dart';
+//
 class Login extends StatelessWidget {
   Login({Key? key}) : super(key: key);
   static Values data_ = Values();
@@ -56,8 +58,8 @@ class Login extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
+                  SafeArea(
+                    // padding: const EdgeInsets.all(8),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       // ignore: prefer_const_literals_to_create_immutables
@@ -116,13 +118,14 @@ class Login extends StatelessWidget {
                               onPressed: () async {
                                 final AuthResponse res =
                                     await supabase.auth.signInWithPassword(
-                                  email: 'aabc@gmail.com',
-                                  password: '12345',
+                                  email: emailController.text,
+                                  password: passwordController.text,
                                 );
                                 final Session? session = res.session;
                                 final User? user = res.user;
                                 // print(passwordController.text);
                                 // print(emailController.text);
+                                print(session);
                               },
                               style: const ButtonStyle(
                                 alignment: Alignment.center,

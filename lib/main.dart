@@ -7,6 +7,7 @@ import 'secret.dart';
 Future<void> main() async {
   await Supabase.initialize(
       url: Secret.supabaseUrl, anonKey: Secret.supabaseAnnonKey);
+
   runApp(Login());
 }
 
