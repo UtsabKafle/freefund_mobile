@@ -1,11 +1,16 @@
 // ignore_for_file: avoid_print
 
 import 'package:flutter/material.dart';
+import '../../main.dart';
 import 'constants.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supabase/supabase.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+  Login({Key? key}) : super(key: key);
   static Values data_ = Values();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +78,12 @@ class Login extends StatelessWidget {
                           ),
                         ),
                         TextField(
-                            decoration: data_.inputField(
-                                "Email", Icons.email_outlined)),
+                          decoration: data_.inputField(
+                            "Email",
+                            Icons.email_outlined,
+                          ),
+                          controller: emailController,
+                        ),
 
                         //////////////
                         ///
@@ -89,6 +98,7 @@ class Login extends StatelessWidget {
                         TextField(
                             obscureText: true,
                             enableSuggestions: false,
+                            controller: passwordController,
                             autocorrect: false,
                             decoration: data_.inputField(
                                 "passowrd", Icons.password_outlined)
@@ -103,7 +113,17 @@ class Login extends StatelessWidget {
                             height: 40,
                             width: 100,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () async {
+                                final AuthResponse res =
+                                    await supabase.auth.signInWithPassword(
+                                  email: 'aabc@gmail.com',
+                                  password: '12345',
+                                );
+                                final Session? session = res.session;
+                                final User? user = res.user;
+                                // print(passwordController.text);
+                                // print(emailController.text);
+                              },
                               style: const ButtonStyle(
                                 alignment: Alignment.center,
                               ),
