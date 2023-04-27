@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:free_fund_app/component/auth/LoginActivity.dart';
+import 'package:freefund_mobile/components/auth/login.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 // void main() {
@@ -148,7 +148,7 @@ class SignUpActivity extends StatelessWidget {
                   const Text("Already have an Account, "),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginActivity()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
                       Navigator.pop(context);
                     },
                     child: const Text(
