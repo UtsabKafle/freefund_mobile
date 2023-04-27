@@ -116,17 +116,18 @@ class Login extends StatelessWidget {
                             width: 100,
                             child: ElevatedButton(
                               onPressed: () async {
-                                final AuthResponse res =
-                                    await supabase.auth.signInWithPassword(
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                );
-                                final Session? session = res.session;
-                                final User? user = res.user;
-                                print(session);
                                 if (emailController.text != '' &&
                                     passwordController.text != '') {
-                                  try {} catch (e) {
+                                  try {
+                                    final AuthResponse res =
+                                        await supabase.auth.signInWithPassword(
+                                      email: emailController.text,
+                                      password: passwordController.text,
+                                    );
+                                    final Session? session = res.session;
+                                    final User? user = res.user;
+                                    print(session);
+                                  } catch (e) {
                                     print(e);
                                   }
                                 } else {
