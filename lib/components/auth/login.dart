@@ -127,8 +127,10 @@ class Login extends StatelessWidget {
                                     final Session? session = res.session;
                                     final User? user = res.user;
                                     print(session);
+                                    print('----------');
+                                    // print("user-- $user");
                                   } catch (e) {
-                                    print(e);
+                                    print("exception: $e");
                                   }
                                 } else {
                                   //
