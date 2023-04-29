@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -10,24 +8,37 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-            appBar: AppBar(),
-            body: CustomScrollView(slivers: <Widget>[
-              SliverAppBar(
-                title: const Text('Hello World'),
-                actions: <Widget>[
-                  IconButton(
-                    icon: const Icon(Icons.shopping_cart),
-                    tooltip: 'Open shopping cart',
-                    onPressed: () {
-                      // handle the press
-                    },
-                  ),
+      home: Scaffold(
+        // appBar: AppBar(),
+        body: SizedBox(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: const [
+                  Flexible(
+                      child: TextField(
+                    style: TextStyle(),
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.search), hintText: "search"),
+                  ))
                 ],
               ),
-            ])));
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  Flexible(child: Text("hello")),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
