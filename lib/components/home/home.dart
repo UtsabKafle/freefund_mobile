@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/card.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -13,32 +14,31 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        // appBar: AppBar(),
-        body: SizedBox(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: const [
-                  Flexible(
-                      child: TextField(
-                    style: TextStyle(),
-                    decoration: InputDecoration(
-                        icon: Icon(Icons.search), hintText: "search"),
-                  ))
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  Flexible(child: Text("hello")),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
+          body: Column(
+        children: [
+          SizedBox(
+              height: 470,
+              child: Expanded(
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    shit(),
+                    shit(),
+                    shit(),
+                    shit(),
+                    shit(),
+                    shit(),
+                    shit(),
+                    shit()
+                  ],
+                ),
+              )),
+        ],
+      )),
     );
   }
+}
+
+Widget shit() {
+  return const cardElement();
 }
