@@ -1,11 +1,17 @@
 
 import 'package:flutter/material.dart';
-import 'package:freefund_mobile/components/auth/login.dart';
+import 'package:freefund_mobile/components/auth/Login.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-// void main() {
-//   runApp(const MyApp());
+// Future<void> main() async {
+//   await Supabase.initialize(
+//       url: "https://exeabphoiyapqqvxxedb.supabase.co",
+//       anonKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImV4ZWFicGhvaXlhcHFxdnh4ZWRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODIwNTgzNTIsImV4cCI6MTk5NzYzNDM1Mn0.HnEXoU1E7NM7SMLyraR5fikiygzPNAOiHMnvuJCHev0"
+//   );
+//
+//   runApp(SignUpActivity());
 // }
+
 
 class SignUpActivity extends StatelessWidget {
   const SignUpActivity({super.key});
@@ -16,6 +22,8 @@ class SignUpActivity extends StatelessWidget {
     var email = TextEditingController();
     var password = TextEditingController();
     var name = TextEditingController();
+
+    var progressBarState = new GlobalKey<ScaffoldState>();
 
 
 // Get a reference your Supabase client
@@ -33,7 +41,7 @@ class SignUpActivity extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
-                "Sign In to Continue",
+                "Sign Up to Continue",
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.bold,
@@ -128,6 +136,8 @@ class SignUpActivity extends StatelessWidget {
               ElevatedButton(
                   onPressed: () async {
 
+                    // progressBarState.currentState.show
+
                     final AuthResponse res = await supabase.auth.signUp(
                       email: email.text,
                       password: password.text,
@@ -136,6 +146,9 @@ class SignUpActivity extends StatelessWidget {
                     final Session? session = res.session;
                     final User? user = res.user;
 
+                    print("session: $session");
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
 
 
                   },
@@ -148,8 +161,9 @@ class SignUpActivity extends StatelessWidget {
                   const Text("Already have an Account, "),
                   GestureDetector(
                     onTap: () {
+                      print("text clicked");
                       Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-                      Navigator.pop(context);
+                      // Navigator.pop(context);
                     },
                     child: const Text(
                       "Sign In",
@@ -165,4 +179,29 @@ class SignUpActivity extends StatelessWidget {
       debugShowCheckedModeBanner: false,
     );
   }
+
+
+}
+
+class TextInputField extends StatelessWidget {
+
+  TextInputField(String passwordController, IconData icon, String hint, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      child: TextField(
+        controller: password,
+        obscureText: true,
+        decoration: InputDecoration(
+            prefixIcon: const Icon(Icons.password),
+            hintText: "Enter Password",
+            border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10.0))),
+      ),
+    ),
+
+  }
+
 }

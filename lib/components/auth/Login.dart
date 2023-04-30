@@ -14,6 +14,8 @@ class Login extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
+  final supabase = Supabase.instance.client;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -116,6 +118,7 @@ class Login extends StatelessWidget {
                             width: 100,
                             child: ElevatedButton(
                               onPressed: () async {
+
                                 final AuthResponse res =
                                     await supabase.auth.signInWithPassword(
                                   email: emailController.text,
@@ -123,9 +126,10 @@ class Login extends StatelessWidget {
                                 );
                                 final Session? session = res.session;
                                 final User? user = res.user;
+
                                 // print(passwordController.text);
                                 // print(emailController.text);
-                                print(session);
+                                print("session: $session");
                               },
                               style: const ButtonStyle(
                                 alignment: Alignment.center,
