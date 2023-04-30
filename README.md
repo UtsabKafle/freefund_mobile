@@ -2,6 +2,9 @@
 
 A new Flutter project.
 
+## Starting the application
+flutter run --dart-define="sb_url=<supbase_url>" --dart-define="anon_key=<supabase_anon_key>"
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
