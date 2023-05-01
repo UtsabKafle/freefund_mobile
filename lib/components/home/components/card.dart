@@ -6,8 +6,8 @@ class cardElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
-      width: 300,
+      height: 130,
+      width: 250,
       child: Card(
         margin: const EdgeInsets.all(10),
         child: Column(
@@ -17,11 +17,11 @@ class cardElement extends StatelessWidget {
             Image.network(
               'https://mythgyaan.com/wp-content/uploads/2018/01/gita-880x575.jpg',
               fit: BoxFit.fill,
-              height: 300,
-              width: 300,
+              // height: 300,
+              // width: 250,
             ),
             const Text(
-                "this is a sample text for the application. Also this is good peice of shit"),
+                "this is a sample text for the application. Also this is good. peice of shit"),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,

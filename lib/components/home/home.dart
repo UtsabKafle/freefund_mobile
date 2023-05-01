@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freefund_mobile/components/auth/Login.dart';
 import 'components/card.dart';
 
 class Home extends StatefulWidget {
@@ -14,11 +15,44 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Free-fund"),
+          // backgroundColor: Color.fromARGB(255, 89, 150, 199),
+        ),
+        bottomNavigationBar: BottomNavigationBar(items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: IconButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, 'account');
+                  },
+                  icon: Icon(Icons.person)),
+              label: "account")
+        ]),
         body: SingleChildScrollView(
             child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(
+                width: 300,
+                height: 55,
+                child: Padding(
+                  padding: EdgeInsets.all(8),
+                  child: TextField(
+                    autofocus: false,
+                    style: TextStyle(
+                      fontSize: 14,
+                    ),
+                    decoration: InputDecoration(
+                        icon: Icon(Icons.search),
+                        hintText: "search",
+                        border: OutlineInputBorder()),
+                  ),
+                )),
+
             SizedBox(
-                height: 470,
+                height: 400,
                 // decoration: const BoxDecoration(
                 //   border: Border(top: BorderSide(color: Colors.black)),
                 // ),
@@ -26,9 +60,13 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text("Donations"),
+                    Text(
+                      "Donations",
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
                     Divider(
-                      color: Colors.red,
+                      color: Color.fromARGB(255, 134, 129, 129),
+                      thickness: 2,
                     ),
                     Expanded(
                       child: ListView(
@@ -46,7 +84,7 @@ class _HomeState extends State<Home> {
             /////////
             ///
             SizedBox(
-                height: 470,
+                height: 400,
                 // decoration: const BoxDecoration(
                 //   border: Border(top: BorderSide(color: Colors.black)),
                 // ),
@@ -70,7 +108,7 @@ class _HomeState extends State<Home> {
                   ],
                 )),
             SizedBox(
-                height: 470,
+                height: 400,
                 // decoration: const BoxDecoration(
                 //   border: Border(top: BorderSide(color: Colors.black)),
                 // ),
@@ -97,6 +135,7 @@ class _HomeState extends State<Home> {
         )),
       ),
       debugShowCheckedModeBanner: false,
+      routes: {'account': (context) => Login(), 'home': (context) => Home()},
     );
   }
 }
