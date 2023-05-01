@@ -14,27 +14,89 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          body: Column(
-        children: [
-          SizedBox(
-              height: 470,
-              child: Expanded(
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
+        body: SingleChildScrollView(
+            child: Column(
+          children: [
+            SizedBox(
+                height: 470,
+                // decoration: const BoxDecoration(
+                //   border: Border(top: BorderSide(color: Colors.black)),
+                // ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    shit(),
-                    shit(),
-                    shit(),
-                    shit(),
-                    shit(),
-                    shit(),
-                    shit(),
-                    shit()
+                    Text("Donations"),
+                    Divider(
+                      color: Colors.red,
+                    ),
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: const [
+                          cardElement(),
+                          cardElement(),
+                          cardElement()
+                        ],
+                      ),
+                    )
                   ],
-                ),
-              )),
-        ],
-      )),
+                )),
+
+            /////////
+            ///
+            SizedBox(
+                height: 470,
+                // decoration: const BoxDecoration(
+                //   border: Border(top: BorderSide(color: Colors.black)),
+                // ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Events"),
+                    Divider(
+                      color: Colors.red,
+                    ),
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: const [
+                          cardElement(),
+                          cardElement(),
+                          cardElement()
+                        ],
+                      ),
+                    )
+                  ],
+                )),
+            SizedBox(
+                height: 470,
+                // decoration: const BoxDecoration(
+                //   border: Border(top: BorderSide(color: Colors.black)),
+                // ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Events"),
+                    Divider(
+                      color: Colors.red,
+                    ),
+                    Expanded(
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: const [
+                          cardElement(),
+                          cardElement(),
+                          cardElement()
+                        ],
+                      ),
+                    )
+                  ],
+                )),
+          ],
+        )),
+      ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
