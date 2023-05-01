@@ -118,7 +118,7 @@ class Login extends StatelessWidget {
                             width: 100,
                             child: ElevatedButton(
                               onPressed: () async {
-<<<<<<< HEAD:lib/components/auth/Login.dart
+// <<<<<<< HEAD:lib/components/auth/Login.dart
 
                                 final AuthResponse res =
                                     await supabase.auth.signInWithPassword(
@@ -131,7 +131,7 @@ class Login extends StatelessWidget {
                                 // print(passwordController.text);
                                 // print(emailController.text);
                                 print("session: $session");
-=======
+// =======
                                 if (emailController.text != '' &&
                                     passwordController.text != '') {
                                   try {
@@ -154,7 +154,7 @@ class Login extends StatelessWidget {
 
                                 // print(passwordController.text);
                                 // print(emailController.text);
->>>>>>> 9444663b6356d0a869a14efc77fdbc1111daa107:lib/components/auth/login.dart
+// >>>>>>> 9444663b6356d0a869a14efc77fdbc1111daa107:lib/components/auth/login.dart
                               },
                               style: const ButtonStyle(
                                 alignment: Alignment.center,
