@@ -7,7 +7,7 @@ class cardElement extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 150,
-      // width: 350,
+      width: 300,
       child: Card(
         margin: const EdgeInsets.all(10),
         child: Column(
@@ -21,7 +21,7 @@ class cardElement extends StatelessWidget {
               width: 300,
             ),
             const Text(
-                "this is a sample text for the application. Also this is good"),
+                "this is a sample text for the application. Also this is good peice of shit"),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
