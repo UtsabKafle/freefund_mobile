@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/auth/Login.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';

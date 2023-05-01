@@ -118,18 +118,44 @@ class Login extends StatelessWidget {
                             width: 100,
                             child: ElevatedButton(
                               onPressed: () async {
+<<<<<<< HEAD
 // <<<<<<< HEAD:lib/components/auth/Login.dart
+=======
+                                // final AuthResponse res =
+                                //     await supabase.auth.signInWithPassword(
+                                //   email: emailController.text,
+                                //   password: passwordController.text,
+                                // );
+                                // final Session? session = res.session;
+                                // final User? user = res.user;
+>>>>>>> ac8a67b3acad69bc294a0661d7dde593cf232a5f
 
-                                final AuthResponse res =
-                                    await supabase.auth.signInWithPassword(
-                                  email: emailController.text,
-                                  password: passwordController.text,
-                                );
-                                final Session? session = res.session;
-                                final User? user = res.user;
+                                // // print(passwordController.text);
+                                // // print(emailController.text);
+                                // print("session: $session");
+                                // if (emailController.text != '' &&
+                                //     passwordController.text != '') {
+                                //   try {
+                                //     final AuthResponse res =
+                                //         await supabase.auth.signInWithPassword(
+                                //       email: emailController.text,
+                                //       password: passwordController.text,
+                                //     );
+                                //     final Session? session = res.session;
+                                //     final User? user = res.user;
+                                //     print(session);
+                                //     print('----------');
+                                //     // print("user-- $user");
+                                //   } catch (e) {
+                                //     print("exception: $e");
+                                //   }
+                                // } else {
+                                //   //
+                                // }
 
                                 // print(passwordController.text);
                                 // print(emailController.text);
+<<<<<<< HEAD
                                 print("session: $session");
 // =======
                                 if (emailController.text != '' &&
@@ -155,6 +181,8 @@ class Login extends StatelessWidget {
                                 // print(passwordController.text);
                                 // print(emailController.text);
 // >>>>>>> 9444663b6356d0a869a14efc77fdbc1111daa107:lib/components/auth/login.dart
+=======
+>>>>>>> ac8a67b3acad69bc294a0661d7dde593cf232a5f
                               },
                               style: const ButtonStyle(
                                 alignment: Alignment.center,
