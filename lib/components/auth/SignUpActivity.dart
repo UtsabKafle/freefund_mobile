@@ -185,25 +185,25 @@ class SignUpActivity extends StatelessWidget {
 
 }
 
-class TextInputField extends StatelessWidget {
-
-  TextInputField(String passwordController, IconData icon, String hint, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-      child: TextField(
-        controller: password,
-        obscureText: true,
-        decoration: InputDecoration(
-            prefixIcon: const Icon(Icons.password),
-            hintText: "Enter Password",
-            border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0))),
-      ),
-    ),
-
-  }
-
-}
+// class TextInputField extends StatelessWidget {
+//
+//   TextInputField(String passwordController, IconData icon, String hint, {super.key});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+//       child: TextField(
+//         controller: password,
+//         obscureText: true,
+//         decoration: InputDecoration(
+//             prefixIcon: const Icon(Icons.password),
+//             hintText: "Enter Password",
+//             border: OutlineInputBorder(
+//                 borderRadius: BorderRadius.circular(10.0))),
+//       ),
+//     ),
+//
+//   }
+//
+// }
