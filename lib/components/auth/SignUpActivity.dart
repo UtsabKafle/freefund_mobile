@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/auth/Login.dart';
+import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 // Future<void> main() async {
@@ -33,8 +34,10 @@ class SignUpActivity extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      
       home: Scaffold(
         backgroundColor: const Color.fromRGBO(218, 245, 255, 50),
+        bottomNavigationBar: bottomNav(context),
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,

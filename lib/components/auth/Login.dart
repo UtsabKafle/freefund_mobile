@@ -1,6 +1,7 @@
 // ignore_for_file: avoid_print, unused_local_variable
 
 import 'package:flutter/material.dart';
+import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
 import '../../main.dart';
 import 'constants.dart';
 
@@ -14,7 +15,7 @@ class Login extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  final supabase = Supabase.instance.client;
+  // final supabase = Supabase.instance.client;
 
   @override
   Widget build(BuildContext context) {
@@ -24,6 +25,7 @@ class Login extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: const Color.fromARGB(255, 82, 180, 215),
           ),
+          bottomNavigationBar: bottomNav(context),
           body: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(8),
@@ -111,6 +113,11 @@ class Login extends StatelessWidget {
                             //     hintText: "Password",
                             //     border: OutlineInputBorder()),
                             ),
+                        TextButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/signup');
+                            },
+                            child: Text("Create account")),
                         Padding(
                           padding: const EdgeInsets.all(8),
                           child: SizedBox(
@@ -155,7 +162,7 @@ class Login extends StatelessWidget {
                               style: const ButtonStyle(
                                 alignment: Alignment.center,
                               ),
-                              child: const Text("Done"),
+                              child: const Text("Log in"),
                             ),
                           ),
                         ),

@@ -1,6 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/auth/Login.dart';
+import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
+import 'package:freefund_mobile/components/home/components/titleDivider.dart';
 import 'components/card.dart';
+import 'components/searchbar.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -19,37 +24,13 @@ class _HomeState extends State<Home> {
           title: const Text("Free-fund"),
           // backgroundColor: Color.fromARGB(255, 89, 150, 199),
         ),
-        bottomNavigationBar: BottomNavigationBar(items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: IconButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, 'account');
-                  },
-                  icon: Icon(Icons.person)),
-              label: "account")
-        ]),
+        bottomNavigationBar: bottomNav(context),
         body: SingleChildScrollView(
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-                width: 300,
-                height: 55,
-                child: Padding(
-                  padding: EdgeInsets.all(8),
-                  child: TextField(
-                    autofocus: false,
-                    style: TextStyle(
-                      fontSize: 14,
-                    ),
-                    decoration: InputDecoration(
-                        icon: Icon(Icons.search),
-                        hintText: "search",
-                        border: OutlineInputBorder()),
-                  ),
-                )),
+            searchBar(),
 
             SizedBox(
                 height: 400,
@@ -60,14 +41,7 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      "Donations",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    Divider(
-                      color: Color.fromARGB(255, 134, 129, 129),
-                      thickness: 2,
-                    ),
+                    titleDivider(context, "Donations"),
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
@@ -91,10 +65,7 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Events"),
-                    Divider(
-                      color: Colors.red,
-                    ),
+                    titleDivider(context, "Events"),
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
@@ -115,10 +86,7 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Events"),
-                    Divider(
-                      color: Colors.red,
-                    ),
+                    titleDivider(context, "Meetings"),
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
@@ -135,7 +103,6 @@ class _HomeState extends State<Home> {
         )),
       ),
       debugShowCheckedModeBanner: false,
-      routes: {'account': (context) => Login(), 'home': (context) => Home()},
     );
   }
 }
