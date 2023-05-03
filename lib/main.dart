@@ -1,6 +1,6 @@
 import 'components/auth/login.dart';
 import 'package:flutter/material.dart';
-// import 'components/auth/SignUpActivity.dart';
+import 'components/auth/SignUpActivity.dart';
 // import 'package:supabase_flutter/supabase_flutter.dart';
 // import 'secret.dart';
 import 'components/home/home.dart';
@@ -11,7 +11,14 @@ Future<void> main() async {
   //     anonKey: Secret.supabaseAnnonKey
   // );
 
-  runApp(const Home());
+  runApp(MaterialApp(
+    initialRoute: '/home',
+    routes: {
+      "/home": (context) => const Home(),
+      '/account': (context) => Login(),
+      '/signup': (context) => SignUpActivity()
+    },
+  ));
 }
 
 // final supabase = Supabase.instance.client;
