@@ -1,15 +1,26 @@
 import 'package:flutter/material.dart';
 
-Widget titleDivider(context, String title) {
+Widget titleDivider(context, String title, String type) {
+  Color colo() {
+    if (type == 'donation') {
+      return Color.fromARGB(255, 12, 184, 219);
+    }
+    if (type == "event") {
+      return Color.fromARGB(133, 228, 20, 30);
+    } else {
+      return Colors.black54;
+    }
+  }
+
   return Row(
     children: [
-      const SizedBox(
-        width: 20,
+      SizedBox(
+        width: 25,
         child: Divider(
-          thickness: 2,
-          height: 2,
+          thickness: 8,
+          // height: 0,
           endIndent: 3,
-          color: Color.fromARGB(255, 134, 129, 129),
+          color: colo(),
         ),
       ),
       SizedBox(
@@ -20,10 +31,10 @@ Widget titleDivider(context, String title) {
       ),
       SizedBox(
         width: MediaQuery.of(context).size.width - 100,
-        child: const Divider(
+        child: Divider(
           indent: 1,
           height: 2,
-          color: Color.fromARGB(255, 134, 129, 129),
+          color: Color.fromARGB(255, 56, 62, 63),
           thickness: 2,
         ),
       )

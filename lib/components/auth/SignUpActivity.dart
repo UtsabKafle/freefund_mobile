@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/auth/Login.dart';
 import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+// import 'package:supabase_flutter/supabase_flutter.dart';
 
 // Future<void> main() async {
 //   await Supabase.initialize(
@@ -11,7 +11,6 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 //
 //   runApp(SignUpActivity());
 // }
-
 
 class SignUpActivity extends StatelessWidget {
   const SignUpActivity({super.key});
@@ -25,16 +24,14 @@ class SignUpActivity extends StatelessWidget {
 
     var progressBarState = new GlobalKey<ScaffoldState>();
 
-
 // Get a reference your Supabase client
-    final supabase = Supabase.instance.client;
+    // final supabase = Supabase.instance.client;
 
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      
       home: Scaffold(
         backgroundColor: const Color.fromRGBO(218, 245, 255, 50),
         bottomNavigationBar: bottomNav(context),
@@ -97,9 +94,9 @@ class SignUpActivity extends StatelessWidget {
               const SizedBox(
                 height: 8.0,
               ),
-
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: TextField(
                   controller: name,
                   keyboardType: TextInputType.name,
@@ -110,9 +107,9 @@ class SignUpActivity extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0))),
                 ),
               ),
-
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: TextField(
                   controller: email,
                   keyboardType: TextInputType.emailAddress,
@@ -124,7 +121,8 @@ class SignUpActivity extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                margin:
+                    const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
                 child: TextField(
                   controller: password,
                   obscureText: true,
@@ -137,26 +135,21 @@ class SignUpActivity extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () async {
-
                     // progressBarState.currentState.show
 
-                    final AuthResponse res = await supabase.auth.signUp(
-                      email: email.text,
-                      password: password.text,
-                      data: {'username': '$name'},
-                    );
-                    final Session? session = res.session;
-                    final User? user = res.user;
+                    // final AuthResponse res = await supabase.auth.signUp(
+                    //   email: email.text,
+                    //   password: password.text,
+                    //   data: {'username': '$name'},
+                    // );
+                    // final Session? session = res.session;
+                    // final User? user = res.user;
 
-                    print("session: $session");
+                    // print("session: $session");
 
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
-
-
+                    // Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
                   },
-                  child: const Text("Sign Up")
-              ),
-
+                  child: const Text("Sign Up")),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -164,7 +157,8 @@ class SignUpActivity extends StatelessWidget {
                   GestureDetector(
                     onTap: () {
                       print("text clicked");
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Login()));
                       // Navigator.pop(context);
                     },
                     child: const Text(
@@ -181,8 +175,6 @@ class SignUpActivity extends StatelessWidget {
       debugShowCheckedModeBanner: false,
     );
   }
-
-
 }
 
 // class TextInputField extends StatelessWidget {

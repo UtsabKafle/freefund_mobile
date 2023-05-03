@@ -16,6 +16,13 @@ BottomNavigationBar bottomNav(context) {
               Navigator.pushNamed(context, '/account');
             },
             icon: const Icon(Icons.person)),
+        label: "account"),
+    BottomNavigationBarItem(
+        icon: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/profile');
+            },
+            icon: const Icon(Icons.manage_accounts)),
         label: "account")
   ]);
 }

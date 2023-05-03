@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/auth/Login.dart';
 import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
@@ -41,7 +39,7 @@ class _HomeState extends State<Home> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    titleDivider(context, "Donations"),
+                    titleDivider(context, "Donations", "donation"),
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
@@ -65,7 +63,7 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    titleDivider(context, "Events"),
+                    titleDivider(context, "Events", "event"),
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
@@ -86,7 +84,7 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    titleDivider(context, "Meetings"),
+                    titleDivider(context, "Meetings", "events"),
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
