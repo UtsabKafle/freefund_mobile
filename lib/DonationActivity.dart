@@ -1,5 +1,7 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:freefund_mobile/Donations.dart';
 
 import 'Resources.dart';
 
@@ -19,6 +21,7 @@ class DonationActivity extends StatelessWidget {
 
   int totalDonation = 8000;
   int totalDonationGoal = 10000;
+
   int noOfDonour = 6;
 
   String personOrOrganization = "Sujan Aangbo";
@@ -27,8 +30,11 @@ class DonationActivity extends StatelessWidget {
       "https://www.facebook.com/photo/?fbid=1069157877083747&set=a.105142370151974";
   String contactInfo = "9827931150";
 
+  List<Donations> donorList = Donor().getDonor();
+
   @override
   Widget build(BuildContext context) {
+
     // TODO: 1. fetch the value of title, description, image from server
 
     // TODO: 2. fetch the donation value(total donation, donation goal, no of donour etc)
@@ -45,20 +51,42 @@ class DonationActivity extends StatelessWidget {
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
               child: Column(
                 children: [
-                  SizedBox(height: 8.0,),
-                  Image.network(image, fit: BoxFit.fitWidth,),
+                  SizedBox(
+                    height: 8.0,
+                  ),
+                  Image.network(
+                    image,
+                    fit: BoxFit.fitWidth,
+                  ),
                   SizedBox(
                     height: 16.0,
                   ),
                   ShowDonationProgress(
-                      totalDonation = totalDonation,
-                      totalDonationGoal = totalDonationGoal,
-                      noOfDonour = noOfDonour),
+                    totalDonation = totalDonation,
+                    totalDonationGoal = totalDonationGoal,
+                  ),
                   SizedBox(
                     height: 8.0,
                   ),
-                  FundRaiserDetails(
-                      personOrOrganization, address, profileImage, contactInfo),
+                  Divider(),
+                  Column(children: [
+                    ShowDonations(noOfDonour),
+                    Container(
+                      height: 200.0,
+                      child: ListView.builder(
+                        itemBuilder: (context, index) {
+                          return ShowDonationCard(
+                              donorList[index].donorName,
+                              donorList[index].donationAmount,
+                              donorList[index].donationDate);
+                        },
+                        scrollDirection: Axis.vertical,
+                        itemCount: donorList.length,
+                      ),
+                    ),
+                  ]),
+                  FundRaiserDetails(personOrOrganization, address,
+                      profileImage, contactInfo),
                   SizedBox(
                     height: 8.0,
                   ),
@@ -77,6 +105,77 @@ class DonationActivity extends StatelessWidget {
           ),
         ), // ),
       ),
+    );
+  }
+}
+
+class ShowDonations extends StatefulWidget {
+  int noOfDonation;
+
+  ShowDonations(this.noOfDonation);
+
+  @override
+  State<StatefulWidget> createState() {
+    return ShowDonationState();
+  }
+}
+
+class ShowDonationState extends State<ShowDonations> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Text(
+        "Donations (${widget.noOfDonation})",
+        style: Resources.titleBoldText,
+      ),
+    ]);
+  }
+}
+
+class ShowDonationCard extends StatelessWidget {
+  String donorName;
+  int donationAmount;
+  String donationDate;
+
+  ShowDonationCard(this.donorName, this.donationAmount, this.donationDate);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        // Image.asset(
+        //   "profileImage",
+        //   width: 20.0,
+        //   height: 20.0,
+        // ),
+
+        Icon(Icons.person),
+        // TODO: change icon to show the rendered image from server
+        SizedBox(
+          width: 8.0,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              donorName,
+              style: Resources.mediumText,
+            ),
+            Row(
+              children: [
+                Text(
+                  donationAmount.toString(),
+                  style: Resources.mediumText,
+                ),
+                Text(
+                  donationDate,
+                  style: Resources.mediumText,
+                )
+              ],
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -132,7 +231,9 @@ class FundRaiserDetails extends StatelessWidget {
           "Fundraiser Details: ",
           style: Resources.titleBoldText,
         ),
-        SizedBox(height: 4.0,),
+        SizedBox(
+          height: 4.0,
+        ),
         Row(
           children: [
             // Image.asset(
@@ -172,10 +273,9 @@ class FundRaiserDetails extends StatelessWidget {
 }
 
 class ShowDonationProgress extends StatelessWidget {
-  int donation, totalDonationGoal, noOfDonour;
+  int donation, totalDonationGoal;
 
-  ShowDonationProgress(this.donation, this.totalDonationGoal, this.noOfDonour,
-      {super.key});
+  ShowDonationProgress(this.donation, this.totalDonationGoal, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -193,16 +293,16 @@ class ShowDonationProgress extends StatelessWidget {
               valueColor: AlwaysStoppedAnimation(Resources.lightBlue),
               backgroundColor: Resources.summerBlue,
             ),
-            SizedBox(height: 8.0,),
+            SizedBox(
+              height: 8.0,
+            ),
             Text(
-              "$donation raised out of $totalDonationGoal goal",
+              "Rs. $donation raised out of Rs. $totalDonationGoal goal",
               style: Resources.mediumText,
             ),
-            SizedBox(height: 4.0,),
-            Text(
-              "No. of Donour: $noOfDonour",
-              style: Resources.mediumText,
-            )
+            SizedBox(
+              height: 4.0,
+            ),
           ],
         ),
       ),
