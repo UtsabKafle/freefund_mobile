@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/Donations.dart';
@@ -34,7 +33,6 @@ class DonationActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // TODO: 1. fetch the value of title, description, image from server
 
     // TODO: 2. fetch the donation value(total donation, donation goal, no of donour etc)
@@ -85,8 +83,8 @@ class DonationActivity extends StatelessWidget {
                       ),
                     ),
                   ]),
-                  FundRaiserDetails(personOrOrganization, address,
-                      profileImage, contactInfo),
+                  FundRaiserDetails(
+                      personOrOrganization, address, profileImage, contactInfo),
                   SizedBox(
                     height: 8.0,
                   ),
@@ -203,7 +201,7 @@ class ShowButton extends StatelessWidget {
               style: Resources.mediumText,
             ),
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFFB0DAFF),
+              onSurface: Color(0xFFB0DAFF),
             ),
           ),
         ),
