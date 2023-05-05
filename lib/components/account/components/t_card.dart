@@ -6,7 +6,7 @@ class cardElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 130,
+      height: 400,
       width: 250,
       child: Card(
         margin: const EdgeInsets.all(10),
@@ -22,16 +22,8 @@ class cardElement extends StatelessWidget {
               // width: 200,
             ),
             //https://www.smilefoundationindia.org/blog/wp-content/uploads/2023/01/Celebrating-Swami-Vivekananda-Jayanti-as-National-Youth-Day-768x768.jpg
-
             const Text(
-              textAlign: TextAlign.center,
-              "this is a sample text for the application. Also this is good. peice of shit - Utsab Kafle",
-              softWrap: true,
-            ),
-            Row(
-              children: [Text('Rs.200 out of Rs.1000')],
-            ),
-
+                "this is a sample text for the application. Also this is good. peice of shit"),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
