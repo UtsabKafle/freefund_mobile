@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:freefund_mobile/Donations.dart';
+import 'package:freefund_mobile/components/donation/component/Donations.dart';
 
-import 'Resources.dart';
+import '../../Resources.dart';
 
 void main() {
   runApp(
