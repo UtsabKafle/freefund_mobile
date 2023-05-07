@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/Resources.dart';
+import 'package:freefund_mobile/components/fundRaise/FormComponent/FundRaisedInfo.dart';
 
 
 var victimName = TextEditingController();
@@ -13,81 +14,100 @@ var victimNumber = TextEditingController();
 var victimRelationToFundraiser = TextEditingController();
 
 void main() {
-  runApp(PresonalInfo());
+  runApp(PersonalInfo());
 }
 
-class PresonalInfo extends StatelessWidget {
+class PersonalInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: SingleChildScrollView(
-
-          child: Column(
-            children: [
-              Text("Personal Info of the Victim", style: Resources.titleBoldText,),
-              Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Name of victim:", style: Resources.mediumText,),
-                      SizedBox(
-                          child: TextField(
-                            keyboardType: TextInputType.name,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              )
-                            ),
-                            controller: victimName,
-                          ),
-                      ),
-
-                      Divider(height: 20,),
-
-                      Text("Address: ", style: Resources.mediumText,),
-                      ShowAddressForm(),
-
-                      Divider(height: 20.0,),
-
-                      Text("Phone number: ", style: Resources.mediumText,),
-                      SizedBox(
-                        child: TextField(
-                          keyboardType: TextInputType.name,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              )
-                          ),
-                          controller: victimNumber,
-                        ),
-                      ),
-
-                      SizedBox(height: 10.0,),
-
-                      Text("Your relation to Victim: ", style: Resources.mediumText,),
-                      SizedBox(
-                        child: TextField(
-                          keyboardType: TextInputType.name,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              )
-                          ),
-                          controller: victimRelationToFundraiser,
-                        ),
-                      ),
-
-                      Divider(height: 20.0,),
-
-                    ],
-                  ),
-              ),
-            ],
-          ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Create Fund"),
         ),
+          body: SingleChildScrollView(
+
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: Column(
+                children: [
+                  Text("Personal Info of the Victim", style: Resources.titleBoldText,),
+                  Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Name of victim:", style: Resources.mediumText,),
+                          SizedBox(
+                              child: TextField(
+                                keyboardType: TextInputType.name,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  )
+                                ),
+                                controller: victimName,
+                              ),
+                          ),
+
+                          Divider(height: 20,),
+
+                          Text("Address: ", style: Resources.mediumText,),
+                          ShowAddressForm(),
+
+                          Divider(height: 20.0,),
+
+                          Text("Phone number: ", style: Resources.mediumText,),
+                          SizedBox(
+                            child: TextField(
+                              keyboardType: TextInputType.name,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  )
+                              ),
+                              controller: victimNumber,
+                            ),
+                          ),
+
+                          SizedBox(height: 10.0,),
+
+                          Text("Your relation to Victim: ", style: Resources.mediumText,),
+                          SizedBox(
+                            child: TextField(
+                              keyboardType: TextInputType.name,
+                              decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  )
+                              ),
+                              controller: victimRelationToFundraiser,
+                            ),
+                          ),
+
+                          Divider(height: 20.0,),
+
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                ElevatedButton(onPressed: () {
+                                  // Todo: write program to go to FundRaisedInfo() class
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => FundRaisedInfo()));
+                                }, child: Text("Next")),
+                              ],
+                            ),
+                          ),
+
+                        ],
+                      ),
+                  ),
+                ],
+              ),
+            ),
+          ),
       ),
     );
   }

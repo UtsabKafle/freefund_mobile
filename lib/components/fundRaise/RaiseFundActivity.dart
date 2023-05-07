@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/Resources.dart';
 
+import 'FormComponent/PersonalInfo.dart';
+
 void main() {
   runApp(MaterialApp(home: RaiseFundFragment()));
 }
@@ -27,6 +29,8 @@ class Funds {
 }
 
 class RaiseFundFragment extends StatelessWidget {
+  const RaiseFundFragment({super.key});
+
   @override
   Widget build(BuildContext context) {
     List<Fund> funds = Funds().createFunds();
@@ -62,7 +66,7 @@ class RaiseFundFragment extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             // TODO: write program to move from RaiseFundActivity to RaisedFundFormActivity
-          },
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => PersonalInfo()));          },
           child: Icon(Icons.add),
         ),
       );
