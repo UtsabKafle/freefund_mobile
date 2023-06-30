@@ -43,11 +43,7 @@ class _HomeState extends State<Home> {
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        children: const [
-                          cardElement(),
-                          cardElement(),
-                          cardElement()
-                        ],
+                        children: [cardElement(), cardElement(), cardElement()],
                       ),
                     )
                   ],
@@ -67,11 +63,7 @@ class _HomeState extends State<Home> {
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        children: const [
-                          cardElement(),
-                          cardElement(),
-                          cardElement()
-                        ],
+                        children: [cardElement(), cardElement(), cardElement()],
                       ),
                     )
                   ],
@@ -88,11 +80,7 @@ class _HomeState extends State<Home> {
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        children: const [
-                          cardElement(),
-                          cardElement(),
-                          cardElement()
-                        ],
+                        children: [cardElement(), cardElement(), cardElement()],
                       ),
                     )
                   ],
@@ -103,8 +91,4 @@ class _HomeState extends State<Home> {
       debugShowCheckedModeBanner: false,
     );
   }
-}
-
-Widget shit() {
-  return const cardElement();
 }

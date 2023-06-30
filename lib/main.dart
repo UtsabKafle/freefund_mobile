@@ -1,3 +1,6 @@
+// import 'dart:js';
+
+import 'components/donation/DonationActivity.dart';
 import 'components/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'components/auth/SignUpActivity.dart';
@@ -19,6 +22,7 @@ Future<void> main() async {
       '/account': (context) => Login(),
       '/signup': (context) => SignUpActivity(),
       '/profile': (context) => Account(),
+      '/dona': (context) => DonationActivity()
     },
   ));
 }

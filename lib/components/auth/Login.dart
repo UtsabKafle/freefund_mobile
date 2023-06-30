@@ -159,25 +159,25 @@ class Login extends StatelessWidget {
 
                                 // print(passwordController.text);
                                 // print(emailController.text);
-                                if (emailController.text != '' &&
-                                    passwordController.text != '') {
-                                  try {
-                                    final AuthResponse res =
-                                        await supabase.auth.signInWithPassword(
-                                      email: emailController.text,
-                                      password: passwordController.text,
-                                    );
-                                    final Session? session = res.session;
-                                    final User? user = res.user;
-                                    print(session);
-                                    print('----------');
-                                    // print("user-- $user");
-                                  } catch (e) {
-                                    print("exception: $e");
-                                  }
-                                } else {
-                                  //
-                                }
+                                // if (emailController.text != '' &&
+                                //     passwordController.text != '') {
+                                //   try {
+                                //     final AuthResponse res =
+                                //         await supabase.auth.signInWithPassword(
+                                //       email: emailController.text,
+                                //       password: passwordController.text,
+                                //     );
+                                //     final Session? session = res.session;
+                                //     final User? user = res.user;
+                                //     print(session);
+                                //     print('----------');
+                                //     // print("user-- $user");
+                                //   } catch (e) {
+                                //     print("exception: $e");
+                                //   }
+                                // } else {
+                                //   //
+                                // }
 
                                 // print(passwordController.text);
                                 // print(emailController.text);
