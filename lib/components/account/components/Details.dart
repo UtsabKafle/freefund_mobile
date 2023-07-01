@@ -36,41 +36,38 @@ Widget details(context) {
           ),
         ),
         SizedBox(
-            height: 50,
+            // height: 50,
             child: Column(
-              children: [
-                Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(8),
-                        child: OutlinedButton(
-                            onPressed: () {
-                              // Clipboard.setData(
-                              //     const ClipboardData(text: "9825915344"));
-                            },
-                            onLongPress: () {
-                              // Clipboard.setData(
-                              //     const ClipboardData(text: "9825915344"));
-                            },
-                            child: Row(
-                              children: const [
-                                Text("esewa "),
-                                Text("9825915344")
-                              ],
-                            )),
-                      ),
-                      OutlinedButton(
-                          onPressed: () {},
-                          child: Row(
-                            children: const [
-                              Text("khalti "),
-                              Text("32322323"),
-                            ],
-                          )),
-                    ]),
-              ],
-            ))
+          children: [
+            Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(8),
+                    child: OutlinedButton(
+                        onPressed: () {
+                          // Clipboard.setData(
+                          //     const ClipboardData(text: "9825915344"));
+                        },
+                        onLongPress: () {
+                          // Clipboard.setData(
+                          //     const ClipboardData(text: "9825915344"));
+                        },
+                        child: Row(
+                          children: const [Text("esewa "), Text("9825915344")],
+                        )),
+                  ),
+                  OutlinedButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: const [
+                          Text("khalti "),
+                          Text("32322323"),
+                        ],
+                      )),
+                ]),
+          ],
+        ))
       ]);
 }
