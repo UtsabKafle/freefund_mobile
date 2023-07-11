@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 BottomNavigationBar bottomNav(context) {
   return BottomNavigationBar(items: [
     BottomNavigationBarItem(
+        backgroundColor: Color.fromARGB(255, 40, 43, 53),
         icon: IconButton(
           onPressed: () {
             Navigator.pushNamed(context, '/home');
@@ -15,14 +16,21 @@ BottomNavigationBar bottomNav(context) {
             onPressed: () {
               Navigator.pushNamed(context, '/dona');
             },
-            icon: const Icon(Icons.person)),
-        label: "account"),
+            icon: const Icon(Icons.domain_verification)),
+        label: "Donate"),
     BottomNavigationBarItem(
         icon: IconButton(
             onPressed: () {
               Navigator.pushNamed(context, '/profile');
             },
             icon: const Icon(Icons.manage_accounts)),
-        label: "account")
+        label: "account"),
+    BottomNavigationBarItem(
+        icon: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/signup');
+            },
+            icon: const Icon(Icons.login)),
+        label: "login"),
   ]);
 }

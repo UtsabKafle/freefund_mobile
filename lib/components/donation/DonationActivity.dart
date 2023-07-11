@@ -1,16 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/donation/component/Donations.dart';
-
+import '../bottomNav/bottomNav.dart';
 import '../../Resources.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: DonationActivity(),
-    ),
-  );
-}
+// void main() {
+//   runApp(
+//     MaterialApp(
+//       home: DonationActivity(),
+//     ),
+
+//   );
+// }
 
 class DonationActivity extends StatelessWidget {
   String title = "Aama Samuwha";
@@ -101,6 +102,7 @@ class DonationActivity extends StatelessWidget {
               ),
             ),
           ),
+          bottomNavigationBar: bottomNav(context),
         ), // ),
       ),
     );

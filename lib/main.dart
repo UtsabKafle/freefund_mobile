@@ -8,6 +8,7 @@ import 'components/auth/SignUpActivity.dart';
 // import 'secret.dart';
 import 'components/home/home.dart';
 import 'components/account/Account.dart';
+import 'components/bottomNav/bottomNav.dart';
 
 Future<void> main() async {
   // await Supabase.initialize(
@@ -15,16 +16,18 @@ Future<void> main() async {
   //     anonKey: Secret.supabaseAnnonKey
   // );
 
-  runApp(MaterialApp(
-    initialRoute: '/home',
-    routes: {
-      "/home": (context) => const Home(),
-      '/account': (context) => Login(),
-      '/signup': (context) => SignUpActivity(),
-      '/profile': (context) => Account(),
-      '/dona': (context) => DonationActivity()
-    },
-  ));
+  runApp(
+    MaterialApp(
+      initialRoute: '/home',
+      routes: {
+        "/home": (context) => const Home(),
+        '/account': (context) => Login(),
+        '/signup': (context) => SignUpActivity(),
+        '/profile': (context) => Account(),
+        '/dona': (context) => DonationActivity()
+      },
+    ),
+  );
 }
 
 // final supabase = Supabase.instance.client;
