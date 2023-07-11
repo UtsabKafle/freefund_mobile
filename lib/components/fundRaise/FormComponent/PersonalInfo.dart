@@ -1,9 +1,11 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freefund_mobile/Resources.dart';
 import 'package:freefund_mobile/components/fundRaise/FormComponent/FundRaisedInfo.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
+bool isSubmitClicked = false;
 
 var victimName = TextEditingController();
 var victimProvince = TextEditingController();
@@ -14,10 +16,17 @@ var victimNumber = TextEditingController();
 var victimRelationToFundraiser = TextEditingController();
 
 void main() {
-  runApp(PersonalInfo());
+  runApp(MaterialApp(home: PersonalInfo()));
 }
 
-class PersonalInfo extends StatelessWidget {
+class PersonalInfo extends StatefulWidget {
+  @override
+  State<PersonalInfo> createState() => _PersonalInfoState();
+}
+
+class _PersonalInfoState extends State<PersonalInfo> {
+
+  GlobalKey<FormState> personalFormKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -26,204 +35,248 @@ class PersonalInfo extends StatelessWidget {
         appBar: AppBar(
           title: Text("Create Fund"),
         ),
-          body: SingleChildScrollView(
-
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+            child: Form(
+              key: personalFormKey,
               child: Column(
                 children: [
-                  Text("Personal Info of the Victim", style: Resources.titleBoldText,),
-                  Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Name of victim:", style: Resources.mediumText,),
-                          SizedBox(
-                              child: TextField(
-                                keyboardType: TextInputType.name,
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  )
-                                ),
-                                controller: victimName,
-                              ),
-                          ),
-
-                          Divider(height: 20,),
-
-                          Text("Address: ", style: Resources.mediumText,),
-                          ShowAddressForm(),
-
-                          Divider(height: 20.0,),
-
-                          Text("Phone number: ", style: Resources.mediumText,),
-                          SizedBox(
-                            child: TextField(
-                              keyboardType: TextInputType.name,
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  )
-                              ),
-                              controller: victimNumber,
-                            ),
-                          ),
-
-                          SizedBox(height: 10.0,),
-
-                          Text("Your relation to Victim: ", style: Resources.mediumText,),
-                          SizedBox(
-                            child: TextField(
-                              keyboardType: TextInputType.name,
-                              decoration: InputDecoration(
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  )
-                              ),
-                              controller: victimRelationToFundraiser,
-                            ),
-                          ),
-
-                          Divider(height: 20.0,),
-
-                          Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                ElevatedButton(onPressed: () {
-                                  // Todo: write program to go to FundRaisedInfo() class
-                                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => FundRaisedInfo()));
-                                }, child: Text("Next")),
-                              ],
-                            ),
-                          ),
-
-                        ],
-                      ),
+                  Text(
+                    "Personal Info of the Victim",
+                    style: Resources.titleBoldText,
+                    textAlign:TextAlign.center,
                   ),
-                ],
-              ),
-            ),
-          ),
-      ),
-    );
-  }
-}
-
-class ShowAddressForm extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-        children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Province: ", style: Resources.mediumText,),
-                        SizedBox(
-                          child: TextField(
-                            keyboardType: TextInputType.name,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                )
-                            ),
-                            controller: victimProvince,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                // SizedBox(width: 100,),
-
-                Expanded(
-                  flex: 1,
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("District: ", style: Resources.mediumText,),
-                        SizedBox(
-                          child: TextField(
-                            keyboardType: TextInputType.name,
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                )
-                            ),
-                            controller: victimDistrict,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                )
-              ],
-            ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("VDC/Municipality: ", style: Resources.mediumText,),
-                      SizedBox(
-                        child: TextField(
-                          keyboardType: TextInputType.name,
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              )
+                      SizedBox(height: 20.0,),
+                      TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        decoration: InputDecoration(
+                          label: Text("Enter Name of Victim"),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
                           ),
-                          controller: victimMun,
+                        ),
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: "Victim name cannot be empty."),
+                        ]),
+                      ),
+
+                      SizedBox(height: 20.0,),
+
+                      Text(
+                        "Address: ",
+                        textAlign: TextAlign.start,
+                        style: Resources.mediumText,
+                      ),
+
+                      SizedBox(height: 10.0,),
+
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
+                              decoration: InputDecoration(
+                                label: Text("Enter Province"),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10.0),
+                                  ),
+                                ),
+                              ),
+                              validator: MultiValidator([
+                                RequiredValidator(errorText: "Province cannot be empty."),
+                              ]),
+                            ),
+                          ),
+                          SizedBox(width: 5.0,),
+                          Expanded(
+                            child: TextFormField(
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
+                              decoration: InputDecoration(
+                                label: Text("Enter District"),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10.0),
+                                  ),
+                                ),
+                              ),
+                              validator: MultiValidator([
+                                RequiredValidator(errorText: "District cannot be empty."),
+                              ]),
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10.0,),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
+                              decoration: InputDecoration(
+                                label: Text("Enter VDC/Municipality"),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10.0),
+                                  ),
+                                ),
+                              ),
+                              validator: MultiValidator([
+                                RequiredValidator(errorText: "VDC/Mun cannot be empty."),
+                              ]),
+                            ),
+                          ),
+                          SizedBox(width: 5.0,),
+                          Expanded(
+                            child: TextFormField(
+                              autovalidateMode: AutovalidateMode.onUserInteraction,
+                              decoration: InputDecoration(
+                                label: Text("Enter Ward no."),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10.0),
+                                  ),
+                                ),
+                              ),
+                              validator: MultiValidator([
+                                RequiredValidator(errorText: "Ward no. cannot be empty."),
+                              ]),
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: 10.0,),
+
+                      TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        decoration: InputDecoration(
+                          label: Text("Phone Number"),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                          ),
+                        ),
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: "Phone number cannot be empty."),
+                        ]),
+                      ),
+                      SizedBox(height: 10.0,),
+                      TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        decoration: InputDecoration(
+                          label: Text("Your relation to Victim"),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                          ),
+                        ),
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: "Your relation cannot be empty."),
+                        ]),
+                      ),
+
+                      SizedBox(height: 20.0,),
+
+
+
+
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ElevatedButton(
+                                onPressed: () {
+                                  if(personalFormKey.currentState!.validate()) {
+
+                                    Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) => FundRaisedInfo()));
+
+                                  }
+                                  // Todo: write program to go to FundRaisedInfo() class
+                                },
+                                child: const Text("Next")),
+                          ],
                         ),
                       ),
                     ],
                   ),
-                ),
-              ),
+                ]
 
-              Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                    Text("Ward No.: ", style: Resources.mediumText,),
-                    SizedBox(
-                      child: TextField(
-                        keyboardType: TextInputType.name,
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10.0),
-                            )
-                        ),
-                        controller: victimWard,
-                      ),
-                    ),
-                ],
               ),
-                  )
-              )
-
-            ],
+            ),
           ),
-
-        ],
+        ),
+      ),
     );
   }
+
+  void form() {
+    body:
+    SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16.0),
+        child: Column(
+          children: [
+
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+
+                  Text(
+                    "Phone number: ",
+                    style: Resources.mediumText,
+                  ),
+                  ShowTextField(victimNumber),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  Text(
+                    "Your relation to Victim: ",
+                    style: Resources.mediumText,
+                  ),
+                  ShowTextField(victimRelationToFundraiser),
+                  const Divider(
+                    height: 20.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        ElevatedButton(
+                            onPressed: () {
+                              isSubmitClicked = true;
+
+                              // Todo: write program to go to FundRaisedInfo() class
+                            },
+                            child: const Text("Next")),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
 }
+
+
+
