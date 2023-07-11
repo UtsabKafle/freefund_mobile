@@ -1,11 +1,9 @@
-// ignore_for_file: avoid_print, unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
 import '../../main.dart';
 import 'constants.dart';
 
-import 'package:supabase_flutter/supabase_flutter.dart';
+// import 'package:supabase_flutter/supabase_flutter.dart';
 
 // import 'package:supabase/supabase.dart';
 //
@@ -15,7 +13,7 @@ class Login extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  final supabase = Supabase.instance.client;
+  // final supabase = Supabase.instance.client;
 
   @override
   Widget build(BuildContext context) {

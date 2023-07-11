@@ -1,6 +1,8 @@
+// import 'dart:js';
+
 import 'package:flutter/material.dart';
 
-Widget cardElement() {
+Widget cardElement(context) {
   return SizedBox(
     height: 130,
     width: 250,
@@ -32,7 +34,11 @@ Widget cardElement() {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ElevatedButton(onPressed: () {}, child: Text("Donate")),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/dona");
+                  },
+                  child: Text("Donate")),
               OutlinedButton(onPressed: () {}, child: Text("Share"))
             ],
           )

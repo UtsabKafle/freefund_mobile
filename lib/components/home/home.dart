@@ -43,7 +43,11 @@ class _HomeState extends State<Home> {
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        children: [cardElement(), cardElement(), cardElement()],
+                        children: [
+                          cardElement(context),
+                          cardElement(context),
+                          cardElement(context)
+                        ],
                       ),
                     )
                   ],
@@ -63,7 +67,11 @@ class _HomeState extends State<Home> {
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        children: [cardElement(), cardElement(), cardElement()],
+                        children: [
+                          cardElement(context),
+                          cardElement(context),
+                          cardElement(context)
+                        ],
                       ),
                     )
                   ],
@@ -80,7 +88,11 @@ class _HomeState extends State<Home> {
                     Expanded(
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        children: [cardElement(), cardElement(), cardElement()],
+                        children: [
+                          cardElement(context),
+                          cardElement(context),
+                          cardElement(context)
+                        ],
                       ),
                     )
                   ],

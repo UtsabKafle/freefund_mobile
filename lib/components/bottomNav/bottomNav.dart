@@ -13,7 +13,7 @@ BottomNavigationBar bottomNav(context) {
     BottomNavigationBarItem(
         icon: IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/account');
+              Navigator.pushNamed(context, '/dona');
             },
             icon: const Icon(Icons.person)),
         label: "account"),
