@@ -2,7 +2,7 @@
 
 // import 'dart:js';
 
-// import 'package:freefund_mobile/components/fundRaise/RaisedFundFormActivity.dart';
+import 'package:freefund_mobile/components/fundRaise/RaisedFundFormActivity.dart';
 
 import 'components/donation/DonationActivity.dart';
 import 'components/auth/login.dart';
@@ -30,7 +30,7 @@ Future<void> main() async {
         '/signup': (context) => SignUpActivity(),
         '/profile': (context) => Account(),
         '/dona': (context) => DonationActivity(),
-        '/raise': (context) => RaiseFundFragment()
+        '/raise': (context) => RaisedFundFormActivity()
       },
     ),
   );
