@@ -1,5 +1,9 @@
 // import 'dart:js';
 
+// import 'dart:js';
+
+// import 'package:freefund_mobile/components/fundRaise/RaisedFundFormActivity.dart';
+
 import 'components/donation/DonationActivity.dart';
 import 'components/auth/login.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +13,7 @@ import 'components/auth/SignUpActivity.dart';
 import 'components/home/home.dart';
 import 'components/account/Account.dart';
 import 'components/bottomNav/bottomNav.dart';
+import 'components/fundRaise/RaiseFundActivity.dart';
 
 Future<void> main() async {
   // await Supabase.initialize(
@@ -24,7 +29,8 @@ Future<void> main() async {
         '/account': (context) => Login(),
         '/signup': (context) => SignUpActivity(),
         '/profile': (context) => Account(),
-        '/dona': (context) => DonationActivity()
+        '/dona': (context) => DonationActivity(),
+        '/raise': (context) => RaiseFundFragment()
       },
     ),
   );
