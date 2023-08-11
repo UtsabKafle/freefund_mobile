@@ -14,7 +14,7 @@ BottomNavigationBar bottomNav(context) {
     BottomNavigationBarItem(
         icon: IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/dona');
+              Navigator.pushNamed(context, '/raise');
             },
             icon: const Icon(Icons.control_point_duplicate_outlined)),
         label: "Raise"),

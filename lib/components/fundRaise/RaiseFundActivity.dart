@@ -4,9 +4,9 @@ import 'package:freefund_mobile/Resources.dart';
 
 import 'FormComponent/PersonalInfo.dart';
 
-void main() {
-  runApp(MaterialApp(home: RaiseFundFragment()));
-}
+// void main() {
+//   runApp(MaterialApp(home: RaiseFundFragment()));
+// }
 
 class Fund {
   String fundTitle, fundRaisedDate;
@@ -60,13 +60,14 @@ class RaiseFundFragment extends StatelessWidget {
               return ShowRaiseFundList(fundTitle, fundDate, totalRaisedFund);
             },
             itemCount: funds.length,
-
           ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             // TODO: write program to move from RaiseFundActivity to RaisedFundFormActivity
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => PersonalInfo()));          },
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => PersonalInfo()));
+          },
           child: Icon(Icons.add),
         ),
       );
@@ -89,25 +90,25 @@ class ShowRaiseFundList extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "$fundTitle",
-                    style: Resources.titleBoldText,
-                  ),
-                  Text(
-                    "$fundRaisedDate",
-                    style: Resources.mediumText,
-                  )
-                ],
-              ),
-              Text(
-                "Rs. $totalFundRaised",
-                style: Resources.titleBoldText,
-              )
-            ],
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "$fundTitle",
+                  style: Resources.titleBoldText,
+                ),
+                Text(
+                  "$fundRaisedDate",
+                  style: Resources.mediumText,
+                )
+              ],
+            ),
+            Text(
+              "Rs. $totalFundRaised",
+              style: Resources.titleBoldText,
+            )
+          ],
         ),
       ),
     );

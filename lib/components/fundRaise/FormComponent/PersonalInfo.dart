@@ -25,7 +25,6 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State<PersonalInfo> {
-
   GlobalKey<FormState> personalFormKey = GlobalKey<FormState>();
 
   @override
@@ -40,179 +39,192 @@ class _PersonalInfoState extends State<PersonalInfo> {
             padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
             child: Form(
               key: personalFormKey,
-              child: Column(
-                children: [
-                  Text(
-                    "Personal Info of the Victim",
-                    style: Resources.titleBoldText,
-                    textAlign:TextAlign.center,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 20.0,),
-                      TextFormField(
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        decoration: InputDecoration(
-                          label: Text("Enter Name of Victim"),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            ),
+              child: Column(children: [
+                Text(
+                  "Personal Info of the Victim",
+                  style: Resources.titleBoldText,
+                  textAlign: TextAlign.center,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      decoration: InputDecoration(
+                        label: Text("Enter Name of Victim"),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10.0),
                           ),
                         ),
-                        validator: MultiValidator([
-                          RequiredValidator(errorText: "Victim name cannot be empty."),
-                        ]),
                       ),
-
-                      SizedBox(height: 20.0,),
-
-                      Text(
-                        "Address: ",
-                        textAlign: TextAlign.start,
-                        style: Resources.mediumText,
+                      validator: MultiValidator([
+                        RequiredValidator(
+                            errorText: "Victim name cannot be empty."),
+                      ]),
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Text(
+                      "Address: ",
+                      textAlign: TextAlign.start,
+                      style: Resources.mediumText,
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            decoration: InputDecoration(
+                              label: Text("Enter Province"),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                            validator: MultiValidator([
+                              RequiredValidator(
+                                  errorText: "Province cannot be empty."),
+                            ]),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Expanded(
+                          child: TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            decoration: InputDecoration(
+                              label: Text("Enter District"),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                            validator: MultiValidator([
+                              RequiredValidator(
+                                  errorText: "District cannot be empty."),
+                            ]),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            decoration: InputDecoration(
+                              label: Text("Enter VDC/Municipality"),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                            validator: MultiValidator([
+                              RequiredValidator(
+                                  errorText: "VDC/Mun cannot be empty."),
+                            ]),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        Expanded(
+                          child: TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            decoration: InputDecoration(
+                              label: Text("Enter Ward no."),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                            validator: MultiValidator([
+                              RequiredValidator(
+                                  errorText: "Ward no. cannot be empty."),
+                            ]),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      decoration: InputDecoration(
+                        label: Text("Phone Number"),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10.0),
+                          ),
+                        ),
                       ),
-
-                      SizedBox(height: 10.0,),
-
-                      Row(
+                      validator: MultiValidator([
+                        RequiredValidator(
+                            errorText: "Phone number cannot be empty."),
+                      ]),
+                    ),
+                    SizedBox(
+                      height: 10.0,
+                    ),
+                    TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      decoration: InputDecoration(
+                        label: Text("Your relation to Victim"),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10.0),
+                          ),
+                        ),
+                      ),
+                      validator: MultiValidator([
+                        RequiredValidator(
+                            errorText: "Your relation cannot be empty."),
+                      ]),
+                    ),
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Expanded(
-                            child: TextFormField(
-                              autovalidateMode: AutovalidateMode.onUserInteraction,
-                              decoration: InputDecoration(
-                                label: Text("Enter Province"),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                              ),
-                              validator: MultiValidator([
-                                RequiredValidator(errorText: "Province cannot be empty."),
-                              ]),
-                            ),
-                          ),
-                          SizedBox(width: 5.0,),
-                          Expanded(
-                            child: TextFormField(
-                              autovalidateMode: AutovalidateMode.onUserInteraction,
-                              decoration: InputDecoration(
-                                label: Text("Enter District"),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                              ),
-                              validator: MultiValidator([
-                                RequiredValidator(errorText: "District cannot be empty."),
-                              ]),
-                            ),
-                          ),
+                          ElevatedButton(
+                              onPressed: () {
+                                if (personalFormKey.currentState!.validate()) {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => FundRaisedInfo()));
+                                }
+                                // Todo: write program to go to FundRaisedInfo() class
+                              },
+                              child: const Text("Next")),
                         ],
                       ),
-                      SizedBox(height: 10.0,),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              autovalidateMode: AutovalidateMode.onUserInteraction,
-                              decoration: InputDecoration(
-                                label: Text("Enter VDC/Municipality"),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                              ),
-                              validator: MultiValidator([
-                                RequiredValidator(errorText: "VDC/Mun cannot be empty."),
-                              ]),
-                            ),
-                          ),
-                          SizedBox(width: 5.0,),
-                          Expanded(
-                            child: TextFormField(
-                              autovalidateMode: AutovalidateMode.onUserInteraction,
-                              decoration: InputDecoration(
-                                label: Text("Enter Ward no."),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(10.0),
-                                  ),
-                                ),
-                              ),
-                              validator: MultiValidator([
-                                RequiredValidator(errorText: "Ward no. cannot be empty."),
-                              ]),
-                            ),
-                          ),
-                        ],
-                      ),
-
-                      SizedBox(height: 10.0,),
-
-                      TextFormField(
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        decoration: InputDecoration(
-                          label: Text("Phone Number"),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            ),
-                          ),
-                        ),
-                        validator: MultiValidator([
-                          RequiredValidator(errorText: "Phone number cannot be empty."),
-                        ]),
-                      ),
-                      SizedBox(height: 10.0,),
-                      TextFormField(
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        decoration: InputDecoration(
-                          label: Text("Your relation to Victim"),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            ),
-                          ),
-                        ),
-                        validator: MultiValidator([
-                          RequiredValidator(errorText: "Your relation cannot be empty."),
-                        ]),
-                      ),
-
-                      SizedBox(height: 20.0,),
-
-
-
-
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            ElevatedButton(
-                                onPressed: () {
-                                  if(personalFormKey.currentState!.validate()) {
-
-                                    Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => FundRaisedInfo()));
-
-                                  }
-                                  // Todo: write program to go to FundRaisedInfo() class
-                                },
-                                child: const Text("Next")),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ]
-
-              ),
+                    ),
+                  ],
+                ),
+              ]),
             ),
           ),
         ),
@@ -227,14 +239,11 @@ class _PersonalInfoState extends State<PersonalInfo> {
         padding: const EdgeInsets.symmetric(vertical: 16.0),
         child: Column(
           children: [
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
-
                   Text(
                     "Phone number: ",
                     style: Resources.mediumText,
@@ -274,9 +283,4 @@ class _PersonalInfoState extends State<PersonalInfo> {
       ),
     );
   }
-
-
 }
-
-
-
