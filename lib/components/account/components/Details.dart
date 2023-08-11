@@ -19,9 +19,9 @@ Widget details(context) {
             fontSize: 20,
           ),
         ),
-        Row(
+        const Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             Text("9825191532"),
             Text('     '),
             Text("utshubkaphle@gmail.com")
