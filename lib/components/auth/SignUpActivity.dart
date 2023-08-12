@@ -22,7 +22,7 @@ class SignUpActivity extends StatelessWidget {
     var password = TextEditingController();
     var name = TextEditingController();
 
-    var progressBarState = new GlobalKey<ScaffoldState>();
+    var progressBarState = GlobalKey<ScaffoldState>();
 
 // Get a reference your Supabase client
     // final supabase = Supabase.instance.client;
@@ -49,9 +49,9 @@ class SignUpActivity extends StatelessWidget {
               const SizedBox(
                 height: 8.0,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   CircleAvatar(
                     radius: 20.0,
                     // backgroundImage: AssetImage("fb_icon.svg"),
@@ -65,9 +65,9 @@ class SignUpActivity extends StatelessWidget {
               const SizedBox(
                 height: 8.0,
               ),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   SizedBox(
                     width: 100.0,
                     height: 5.0,
@@ -101,7 +101,7 @@ class SignUpActivity extends StatelessWidget {
                   controller: name,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person),
+                      prefixIcon: const Icon(Icons.person),
                       hintText: "Enter Name",
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0))),

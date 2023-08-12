@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/Resources.dart';
-
+import '../bottomNav/bottomNav.dart';
 import 'FormComponent/PersonalInfo.dart';
 
 // void main() {
@@ -17,10 +16,10 @@ class Fund {
 
 class Funds {
   List<Fund> createFunds() {
-    Fund fund1 = new Fund("Aama Samuha", "2079/10/11", 10000);
-    Fund fund2 = new Fund("Buba Samuha", "2079/01/11", 15000);
-    Fund fund3 = new Fund("Chora Samuha", "2079/10/11", 1000);
-    Fund fund4 = new Fund("Chori Samuha", "2079/10/11", 1200);
+    Fund fund1 = Fund("Aama Samuha", "2079/10/11", 10000);
+    Fund fund2 = Fund("Buba Samuha", "2079/01/11", 15000);
+    Fund fund3 = Fund("Chora Samuha", "2079/10/11", 1000);
+    Fund fund4 = Fund("Chori Samuha", "2079/10/11", 1200);
 
     List<Fund> result = [fund1, fund2, fund3, fund4];
 
@@ -38,6 +37,7 @@ class RaiseFundFragment extends StatelessWidget {
     // if the user hasn't signup
     if (1 == 2) {
       return Scaffold(
+        bottomNavigationBar: bottomNav(context),
         body: Center(
           child: Text(
             "Please sign in/up to start raising funds",
@@ -65,10 +65,10 @@ class RaiseFundFragment extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             // TODO: write program to move from RaiseFundActivity to RaisedFundFormActivity
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => PersonalInfo()));
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const PersonalInfo()));
           },
-          child: Icon(Icons.add),
+          child: const Icon(Icons.add),
         ),
       );
     }
@@ -79,13 +79,14 @@ class ShowRaiseFundList extends StatelessWidget {
   String fundTitle, fundRaisedDate;
   int totalFundRaised;
 
-  ShowRaiseFundList(this.fundTitle, this.fundRaisedDate, this.totalFundRaised);
+  ShowRaiseFundList(this.fundTitle, this.fundRaisedDate, this.totalFundRaised,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 5.0,
-      margin: EdgeInsets.symmetric(vertical: 10.0),
+      margin: const EdgeInsets.symmetric(vertical: 10.0),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -95,11 +96,11 @@ class ShowRaiseFundList extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "$fundTitle",
+                  fundTitle,
                   style: Resources.titleBoldText,
                 ),
                 Text(
-                  "$fundRaisedDate",
+                  fundRaisedDate,
                   style: Resources.mediumText,
                 )
               ],

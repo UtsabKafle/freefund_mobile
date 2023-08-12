@@ -8,8 +8,10 @@ import 'FormComponent/PersonalInfo.dart';
 // }
 
 class RaisedFundFormActivity extends StatelessWidget {
+  const RaisedFundFormActivity({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return PersonalInfo();
+    return const PersonalInfo();
   }
 }

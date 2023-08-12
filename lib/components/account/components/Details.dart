@@ -44,7 +44,7 @@ Widget details(context) {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: OutlinedButton(
                         onPressed: () {
                           // Clipboard.setData(
@@ -54,14 +54,14 @@ Widget details(context) {
                           // Clipboard.setData(
                           //     const ClipboardData(text: "9825915344"));
                         },
-                        child: Row(
-                          children: const [Text("esewa "), Text("9825915344")],
+                        child: const Row(
+                          children: [Text("esewa "), Text("9825915344")],
                         )),
                   ),
                   OutlinedButton(
                       onPressed: () {},
-                      child: Row(
-                        children: const [
+                      child: const Row(
+                        children: [
                           Text("khalti "),
                           Text("32322323"),
                         ],

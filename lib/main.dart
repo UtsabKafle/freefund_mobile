@@ -12,8 +12,6 @@ import 'components/auth/SignUpActivity.dart';
 // import 'secret.dart';
 import 'components/home/home.dart';
 import 'components/account/Account.dart';
-import 'components/bottomNav/bottomNav.dart';
-import 'components/fundRaise/RaiseFundActivity.dart';
 
 Future<void> main() async {
   // await Supabase.initialize(
@@ -27,10 +25,10 @@ Future<void> main() async {
       routes: {
         "/home": (context) => const Home(),
         '/account': (context) => Login(),
-        '/signup': (context) => SignUpActivity(),
-        '/profile': (context) => Account(),
+        '/signup': (context) => const SignUpActivity(),
+        '/profile': (context) => const Account(),
         '/dona': (context) => DonationActivity(),
-        '/raise': (context) => RaisedFundFormActivity()
+        '/raise': (context) => const RaisedFundFormActivity()
       },
     ),
   );

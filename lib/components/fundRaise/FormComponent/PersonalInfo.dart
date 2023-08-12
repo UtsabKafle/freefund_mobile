@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freefund_mobile/Resources.dart';
 import 'package:freefund_mobile/components/fundRaise/FormComponent/FundRaisedInfo.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import '../../bottomNav/bottomNav.dart';
 
 bool isSubmitClicked = false;
 
@@ -16,10 +15,12 @@ var victimNumber = TextEditingController();
 var victimRelationToFundraiser = TextEditingController();
 
 void main() {
-  runApp(MaterialApp(home: PersonalInfo()));
+  runApp(const MaterialApp(home: PersonalInfo()));
 }
 
 class PersonalInfo extends StatefulWidget {
+  const PersonalInfo({super.key});
+
   @override
   State<PersonalInfo> createState() => _PersonalInfoState();
 }
@@ -32,11 +33,13 @@ class _PersonalInfoState extends State<PersonalInfo> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Create Fund"),
+          title: const Text("Create Fund"),
         ),
+        bottomNavigationBar: bottomNav(context),
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
             child: Form(
               key: personalFormKey,
               child: Column(children: [
@@ -48,12 +51,12 @@ class _PersonalInfoState extends State<PersonalInfo> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         label: Text("Enter Name of Victim"),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -66,7 +69,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             errorText: "Victim name cannot be empty."),
                       ]),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Text(
@@ -74,7 +77,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                       textAlign: TextAlign.start,
                       style: Resources.mediumText,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
                     Row(
@@ -83,7 +86,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           child: TextFormField(
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               label: Text("Enter Province"),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
@@ -97,14 +100,14 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             ]),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5.0,
                         ),
                         Expanded(
                           child: TextFormField(
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               label: Text("Enter District"),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
@@ -120,7 +123,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
                     Row(
@@ -129,7 +132,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                           child: TextFormField(
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               label: Text("Enter VDC/Municipality"),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
@@ -143,14 +146,14 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             ]),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 5.0,
                         ),
                         Expanded(
                           child: TextFormField(
                             autovalidateMode:
                                 AutovalidateMode.onUserInteraction,
-                            decoration: InputDecoration(
+                            decoration: const InputDecoration(
                               label: Text("Enter Ward no."),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
@@ -166,12 +169,12 @@ class _PersonalInfoState extends State<PersonalInfo> {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
                     TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         label: Text("Phone Number"),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -184,12 +187,12 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             errorText: "Phone number cannot be empty."),
                       ]),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10.0,
                     ),
                     TextFormField(
                       autovalidateMode: AutovalidateMode.onUserInteraction,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         label: Text("Your relation to Victim"),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -202,7 +205,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
                             errorText: "Your relation cannot be empty."),
                       ]),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20.0,
                     ),
                     Padding(

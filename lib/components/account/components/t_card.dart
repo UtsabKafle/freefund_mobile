@@ -28,8 +28,8 @@ class cardElement extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ElevatedButton(onPressed: () {}, child: Text("Donate")),
-                OutlinedButton(onPressed: () {}, child: Text("Share"))
+                ElevatedButton(onPressed: () {}, child: const Text("Donate")),
+                OutlinedButton(onPressed: () {}, child: const Text("Share"))
               ],
             )
           ],

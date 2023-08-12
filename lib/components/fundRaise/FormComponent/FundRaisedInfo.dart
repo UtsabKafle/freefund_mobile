@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freefund_mobile/Resources.dart';
-import 'package:freefund_mobile/components/fundRaise/FormComponent/PersonalInfo.dart';
+import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
 import 'package:multi_image_picker_view/multi_image_picker_view.dart';
 
 import '../RaiseFundActivity.dart';
@@ -32,13 +32,16 @@ class FundRaisedInfo extends StatelessWidget {
       images: <ImageFile>[] // array of pre/default selected images
       );
 
+  FundRaisedInfo({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Create Fund"),
+          title: const Text("Create Fund"),
         ),
+        bottomNavigationBar: bottomNav(context),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -54,7 +57,7 @@ class FundRaisedInfo extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 18.0,
                 ),
                 Text(
@@ -62,7 +65,7 @@ class FundRaisedInfo extends StatelessWidget {
                   style: Resources.mediumText,
                 ),
                 ShowTextField(fundraiseTitle),
-                SizedBox(
+                const SizedBox(
                   height: 12.0,
                 ),
                 Text("Insert description of the program: ",
@@ -86,13 +89,13 @@ class FundRaisedInfo extends StatelessWidget {
                   controller: wardVerificationController,
                   padding: const EdgeInsets.all(10),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 12.0,
                 ),
                 Text("Insert Goals of the program (in Rs.): ",
                     style: Resources.mediumText),
                 ShowTextField(fundraiseGoal),
-                SizedBox(
+                const SizedBox(
                   height: 16.0,
                 ),
                 Row(
@@ -102,7 +105,7 @@ class FundRaisedInfo extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).pop(this);
                         },
-                        child: Text("Back")),
+                        child: const Text("Back")),
                     ElevatedButton(
                         onPressed: () {
                           // TODO: write program to insert data to the database
@@ -132,7 +135,7 @@ class FundRaisedInfo extends StatelessWidget {
                                       const RaiseFundFragment()));
                           // Navigator.of(context).popUntil((PersonalInfo) => true);
                         },
-                        child: Text("Submit")),
+                        child: const Text("Submit")),
                   ],
                 )
               ],

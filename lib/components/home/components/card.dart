@@ -26,7 +26,7 @@ Widget cardElement(context) {
             "this is a sample text for the application. Also this is good. peice of shit - Utsab Kafle",
             softWrap: true,
           ),
-          Row(
+          const Row(
             children: [Text('Rs.200 out of Rs.1000')],
           ),
 
@@ -38,8 +38,8 @@ Widget cardElement(context) {
                   onPressed: () {
                     Navigator.pushNamed(context, "/dona");
                   },
-                  child: Text("Donate")),
-              OutlinedButton(onPressed: () {}, child: Text("Share"))
+                  child: const Text("Donate")),
+              OutlinedButton(onPressed: () {}, child: const Text("Share"))
             ],
           )
         ],

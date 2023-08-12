@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/donation/component/Donations.dart';
 import '../bottomNav/bottomNav.dart';
@@ -32,6 +31,8 @@ class DonationActivity extends StatelessWidget {
 
   List<Donations> donorList = Donor().getDonor();
 
+  DonationActivity({super.key});
+
   @override
   Widget build(BuildContext context) {
     // TODO: 1. fetch the value of title, description, image from server
@@ -42,7 +43,7 @@ class DonationActivity extends StatelessWidget {
       home: SafeArea(
         child: Scaffold(
           appBar: AppBar(
-            title: Text("$title"),
+            title: Text(title),
           ),
           body: SingleChildScrollView(
             child: Padding(
@@ -50,27 +51,27 @@ class DonationActivity extends StatelessWidget {
                   const EdgeInsets.symmetric(vertical: 8.0, horizontal: 8.0),
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 8.0,
                   ),
                   Image.network(
                     image,
                     fit: BoxFit.fitWidth,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16.0,
                   ),
                   ShowDonationProgress(
                     totalDonation = totalDonation,
                     totalDonationGoal = totalDonationGoal,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8.0,
                   ),
-                  Divider(),
+                  const Divider(),
                   Column(children: [
                     ShowDonations(noOfDonour),
-                    Container(
+                    SizedBox(
                       height: 200.0,
                       child: ListView.builder(
                         itemBuilder: (context, index) {
@@ -86,15 +87,15 @@ class DonationActivity extends StatelessWidget {
                   ]),
                   FundRaiserDetails(
                       personOrOrganization, address, profileImage, contactInfo),
-                  SizedBox(
+                  const SizedBox(
                     height: 8.0,
                   ),
                   ShowDescription(description),
-                  SizedBox(
+                  const SizedBox(
                     height: 8.0,
                   ),
                   ShowButton("Donate"),
-                  SizedBox(
+                  const SizedBox(
                     height: 8.0,
                   ),
                   ShowButton("Share"),
@@ -112,7 +113,7 @@ class DonationActivity extends StatelessWidget {
 class ShowDonations extends StatefulWidget {
   int noOfDonation;
 
-  ShowDonations(this.noOfDonation);
+  ShowDonations(this.noOfDonation, {super.key});
 
   @override
   State<StatefulWidget> createState() {
@@ -137,7 +138,7 @@ class ShowDonationCard extends StatelessWidget {
   int donationAmount;
   String donationDate;
 
-  ShowDonationCard(this.donorName, this.donationAmount, this.donationDate);
+  ShowDonationCard(this.donorName, this.donationAmount, this.donationDate, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -149,9 +150,9 @@ class ShowDonationCard extends StatelessWidget {
         //   height: 20.0,
         // ),
 
-        Icon(Icons.person),
+        const Icon(Icons.person),
         // TODO: change icon to show the rendered image from server
-        SizedBox(
+        const SizedBox(
           width: 8.0,
         ),
         Column(
@@ -183,7 +184,7 @@ class ShowDonationCard extends StatelessWidget {
 class ShowButton extends StatelessWidget {
   String buttonText;
 
-  ShowButton(this.buttonText);
+  ShowButton(this.buttonText, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -198,12 +199,12 @@ class ShowButton extends StatelessWidget {
                 print("Share Button Clicked");
               }
             },
-            child: Text(
-              "$buttonText",
-              style: Resources.mediumText,
-            ),
             style: ElevatedButton.styleFrom(
-              onSurface: Color(0xFFB0DAFF),
+              disabledForegroundColor: const Color(0xFFB0DAFF).withOpacity(0.38), disabledBackgroundColor: const Color(0xFFB0DAFF).withOpacity(0.12),
+            ),
+            child: Text(
+              buttonText,
+              style: Resources.mediumText,
             ),
           ),
         ),
@@ -219,19 +220,19 @@ class FundRaiserDetails extends StatelessWidget {
   String contactInfo;
 
   FundRaiserDetails(this.personOrOrganization, this.address, this.profileImage,
-      this.contactInfo);
+      this.contactInfo, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Divider(),
+        const Divider(),
         Text(
           "Fundraiser Details: ",
           style: Resources.titleBoldText,
         ),
-        SizedBox(
+        const SizedBox(
           height: 4.0,
         ),
         Row(
@@ -242,9 +243,9 @@ class FundRaiserDetails extends StatelessWidget {
             //   height: 20.0,
             // ),
 
-            Icon(Icons.person),
+            const Icon(Icons.person),
             // TODO: change icon to show the rendered image from server
-            SizedBox(
+            const SizedBox(
               width: 8.0,
             ),
             Column(
@@ -266,7 +267,7 @@ class FundRaiserDetails extends StatelessWidget {
             ),
           ],
         ),
-        Divider()
+        const Divider()
       ],
     );
   }
@@ -281,7 +282,7 @@ class ShowDonationProgress extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       borderOnForeground: true,
-      surfaceTintColor: Color(0xFFB9E9FC),
+      surfaceTintColor: const Color(0xFFB9E9FC),
       elevation: 10.0,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -293,14 +294,14 @@ class ShowDonationProgress extends StatelessWidget {
               valueColor: AlwaysStoppedAnimation(Resources.lightBlue),
               backgroundColor: Resources.summerBlue,
             ),
-            SizedBox(
+            const SizedBox(
               height: 8.0,
             ),
             Text(
               "Rs. $donation raised out of Rs. $totalDonationGoal goal",
               style: Resources.mediumText,
             ),
-            SizedBox(
+            const SizedBox(
               height: 4.0,
             ),
           ],
@@ -313,13 +314,13 @@ class ShowDonationProgress extends StatelessWidget {
 class ShowDescription extends StatelessWidget {
   String description;
 
-  ShowDescription(this.description);
+  ShowDescription(this.description, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Text(
-        "$description",
+        description,
         style: Resources.mediumText,
       ),
     );

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:freefund_mobile/components/auth/Login.dart';
 import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
 import 'package:freefund_mobile/components/home/components/titleDivider.dart';
 import 'components/card.dart';

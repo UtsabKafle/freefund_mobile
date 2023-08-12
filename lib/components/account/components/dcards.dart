@@ -1,5 +1,3 @@
-/// https://m3.material.io/components/cards/specs#0f55bf62-edf2-4619-b00d-b9ed462f2c5a
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 
@@ -8,11 +6,11 @@ class Dcards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Card(
         elevation: 0,
         color: Color.fromARGB(17, 183, 173, 173),
-        shape: const RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
           side: BorderSide(
             color: Color.fromARGB(255, 94, 83, 82),
           ),
@@ -24,7 +22,7 @@ class Dcards extends StatelessWidget {
           child: Center(
               child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 'Events',
                 style: TextStyle(

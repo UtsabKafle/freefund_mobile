@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 Widget titleDivider(context, String title, String type) {
   Color colo() {
     if (type == 'donation') {
-      return Color.fromARGB(255, 12, 184, 219);
+      return const Color.fromARGB(255, 12, 184, 219);
     }
     if (type == "event") {
-      return Color.fromARGB(133, 228, 20, 30);
+      return const Color.fromARGB(133, 228, 20, 30);
     } else {
       return Colors.black54;
     }
@@ -26,12 +26,12 @@ Widget titleDivider(context, String title, String type) {
       SizedBox(
         child: Text(
           title,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
       SizedBox(
         width: MediaQuery.of(context).size.width - 100,
-        child: Divider(
+        child: const Divider(
           indent: 1,
           height: 2,
           color: Color.fromARGB(255, 56, 62, 63),

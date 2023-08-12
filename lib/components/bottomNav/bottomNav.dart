@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 BottomNavigationBar bottomNav(context) {
   return BottomNavigationBar(items: [
     BottomNavigationBarItem(
-        backgroundColor: Color.fromARGB(255, 40, 43, 53),
+        backgroundColor: const Color.fromARGB(255, 40, 43, 53),
         icon: IconButton(
           onPressed: () {
             Navigator.pushNamed(context, '/home');

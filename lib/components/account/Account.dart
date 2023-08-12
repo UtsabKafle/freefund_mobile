@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/account/components/Details.dart';
 import 'package:freefund_mobile/components/account/components/down_elem.dart';
 import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
-import 'package:freefund_mobile/components/account/components/t_card.dart';
 import 'package:freefund_mobile/components/home/components/titleDivider.dart';
-import 'components/dcards.dart';
 
 class Account extends StatelessWidget {
   const Account({Key? key}) : super(key: key);

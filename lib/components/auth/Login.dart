@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:freefund_mobile/components/bottomNav/bottomNav.dart';
-import '../../main.dart';
 import 'constants.dart';
 
 // import 'package:supabase_flutter/supabase_flutter.dart';
@@ -115,7 +114,7 @@ class Login extends StatelessWidget {
                             onPressed: () {
                               Navigator.pushNamed(context, '/signup');
                             },
-                            child: Text("Create account")),
+                            child: const Text("Create account")),
                         Padding(
                           padding: const EdgeInsets.all(8),
                           child: SizedBox(
