@@ -12,7 +12,7 @@ migrate_working_dir/
 
 #the secret keys, environemntal variables
 /lib/secret.dart
-
+.env
 # IntelliJ related
 *.iml
 *.ipr
